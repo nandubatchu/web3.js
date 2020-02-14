@@ -14,6 +14,3 @@ npm init --yes
 npm install web3 --save --registry http://localhost:4873
 
 node ./basic_usage.js
-
-# Force travis to exit on success
-travis_terminate
