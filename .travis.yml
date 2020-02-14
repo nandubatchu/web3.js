@@ -62,7 +62,6 @@ script:
   - ps -ef
 after_success:
   - echo "after_success"
-  - pkill -f bash
-  - pkill -f node
+  - kill $(ps -o pid= --ppid $$)
 
 
