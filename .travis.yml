@@ -62,6 +62,7 @@ script:
   - ps -ef
 after_success:
   - echo "after_success"
-  - ps -ef
+  - pkill -f bash
+  - pkill -f node
 
 
