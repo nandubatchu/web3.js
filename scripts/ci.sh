@@ -53,8 +53,8 @@ elif [ "$TEST" = "e2e_windows" ]; then
   ./scripts/e2e.npm.publish.sh
   ./scripts/e2e.windows.sh
   netstat -ano | findstr :4873
-  pid=(netstat -ano | findstr :4873)
-  taskkill /PID $pid /F
+  pid="$(netstat -ano | findstr :4873)"
+  kill -9 "$pid"
 
 elif [ "$TEST" = "e2e_ganache" ]; then
 
