@@ -58,10 +58,9 @@ install:
   - bash ./scripts/install.sh
 script:
   - bash ./scripts/ci.sh
-  - echo "after script.."
-  - ps -ef
+
 after_success:
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then Get-Process ; fi
+  - ps -Wla
   - if [ "$TRAVIS_OS_NAME" = "windows" ]; then taskkill //F //PID $(ps -Wla | tr -s ' ' | grep node | cut -f2 -d' ') ; fi
   - if [ "$TRAVIS_OS_NAME" = "windows" ]; then taskkill //F //PID $(ps -Wla | tr -s ' ' | grep bash | cut -f2 -d' ') ; fi
 
