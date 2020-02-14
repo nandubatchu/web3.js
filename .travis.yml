@@ -61,5 +61,5 @@ script:
 
 after_success:
   - ps -Wla
-  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then runas /noprofile /user:Administrator taskkill //F //IM System ; fi
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; then runas /noprofile /user:Administrator taskkill //F //IM System //F //T ; fi
 
