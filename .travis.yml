@@ -4,6 +4,9 @@ language: node_js
 git:
   depth: false
 
+env:
+  - YARN_GPG=no
+
 matrix:
   fast_finish: true
   include:
@@ -58,8 +61,4 @@ install:
   - bash ./scripts/install.sh
 script:
   - bash ./scripts/ci.sh
-after_success:
-  - set +e
-  - pkill -9 -P $$ &> /dev/null || true
-  - exit 0
 
