@@ -14,6 +14,3 @@ npm init --yes
 npm install web3@e2e --save --registry http://localhost:4873
 
 node ./basic_usage.js
-
-echo "in e2e.windows.sh"
-ps -ef

@@ -52,8 +52,7 @@ elif [ "$TEST" = "e2e_windows" ]; then
 
   ./scripts/e2e.npm.publish.sh
   ./scripts/e2e.windows.sh
-  echo "in ci.sh"
-  ps -ef
+  ps -ef | grep 'node' | grep -v grep | awk '{print $2}' | xargs kill -9
 
 elif [ "$TEST" = "e2e_ganache" ]; then
 
