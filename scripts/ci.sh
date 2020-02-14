@@ -47,7 +47,12 @@ elif [ "$TEST" = "e2e_mosaic" ]; then
 elif [ "$TEST" = "e2e_ens" ]; then
 
   npm run test:e2e:ens
-  
+
+elif [ "$TEST" = "e2e_windows" ]; then
+
+  ./scripts/e2e.npm.publish.sh
+  ./scripts/e2e.windows.sh
+
 elif [ "$TEST" = "e2e_ganache" ]; then
 
   npm run test:e2e:publish
