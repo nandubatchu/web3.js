@@ -10,8 +10,8 @@ jobs:
       - checkout
       - run: dotnet tool install --global PowerShell
       - run: node --version
-      - run: nvm install lts
-      - run: bash TEST=e2e_windows ./scripts/ci.sh
+      - run: nvm install 12.16.0
+      - run: TEST=e2e_windows bash ./scripts/ci.sh
 workflows:
   version: 2
   build:
