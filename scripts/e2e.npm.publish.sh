@@ -29,7 +29,9 @@ npm install -g lerna@3.18.3
 
 # Launch npm proxy registry
 verdaccio --config verdaccio.yml &
-export VERDACCIO_PID=$!
+echo "in npm.publish.sh: $!"
+echo "VERDACCIO_PID=$!" >> verdaccio_pid
+
 npx wait-port 4873
 
 # `npm add user`
@@ -74,4 +76,3 @@ lerna publish from-package \
   --dist-tag e2e \
   --registry http://localhost:4873 \
   --yes
-

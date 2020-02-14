@@ -52,7 +52,8 @@ elif [ "$TEST" = "e2e_windows" ]; then
 
   ./scripts/e2e.npm.publish.sh
   ./scripts/e2e.windows.sh
-  echo "verdaccio_pid is: $VERDACCIO_PID"
+  source verdaccio_pid
+  echo "pid is: $VERDACCIO_PID"
   kill -9 "$VERDACCIO_PID"
 
 elif [ "$TEST" = "e2e_ganache" ]; then
