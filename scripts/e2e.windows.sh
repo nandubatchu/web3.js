@@ -11,6 +11,6 @@ cp scripts/js/basic_usage.js windows_test/basic_usage.js
 
 cd windows_test
 npm init --yes
-npm install web3 --save --registry http://localhost:4873
+npm install web3@e2e --save --registry http://localhost:4873
 
 node ./basic_usage.js

@@ -18,6 +18,8 @@ if [ -z "$CI" ]; then
 
 fi
 
+YARN_GPG=no
+
 # To model publication correctly, this script needs to run
 # without web3's dev deps being installed. It installs
 # what it needs here.
