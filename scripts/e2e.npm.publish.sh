@@ -28,7 +28,9 @@ npm install -g npm-auth-to-token@1.0.0
 npm install -g lerna@3.18.3
 
 # Launch npm proxy registry
-verdaccio --config verdaccio.yml & npx wait-port 4873
+verdaccio --config verdaccio.yml &
+export VERDACCIO_PID=$!
+npx wait-port 4873
 
 # `npm add user`
 curl -XPUT \
@@ -72,6 +74,4 @@ lerna publish from-package \
   --dist-tag e2e \
   --registry http://localhost:4873 \
   --yes
-
-exit 0
 
