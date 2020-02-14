@@ -42,14 +42,27 @@ npm-auth-to-token \
   -r http://localhost:4873
 
 # Prep branch for Lerna's git-checks
-BRANCH=$TRAVIS_PULL_REQUEST_BRANCH
-if [ -z "$BRANCH" ]; then
 
-  BRANCH=$TRAVIS_BRANCH
+# Circle
+if [[ $CIRCLE_BRANCH ]]; then
 
+  BRANCH=$CIRCLE_BRANCH
+
+# Travis
+else
+
+  BRANCH=$TRAVIS_PULL_REQUEST_BRANCH
+
+  if [ -z "$BRANCH" ]; then
+
+    BRANCH=$TRAVIS_BRANCH
+
+  fi
 fi
 
 git checkout $BRANCH --
+
+echo "Using branch: $BRANCH"
 
 # Lerna version
 lerna version minor \
