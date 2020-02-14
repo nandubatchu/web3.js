@@ -60,6 +60,3 @@ install:
   - bash ./scripts/install.sh
 script:
   - bash ./scripts/ci.sh
-  - exit $?
-
-
