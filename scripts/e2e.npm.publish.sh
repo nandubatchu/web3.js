@@ -26,9 +26,7 @@ npm install -g npm-auth-to-token@1.0.0
 npm install -g lerna@3.18.3
 
 # Launch npm proxy registry and save pid to kill
-verdaccio --config verdaccio.yml &
-echo "VERDACCIO_PID=$!" >> verdaccio_pid
-npx wait-port 4873
+verdaccio --config verdaccio.yml & npx wait-port 4873
 
 # `npm add user`
 curl -XPUT \

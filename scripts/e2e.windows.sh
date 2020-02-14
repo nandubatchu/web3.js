@@ -6,17 +6,8 @@
 # Exit immediately on error
 set -o errexit
 
-# Run cleanup on exit
-trap cleanup EXIT
-
-cleanup() {
-  kill -9 $VERDACCIO_PID
-}
-
 # Virtual publish
 ./scripts/e2e.npm.publish.sh
-source verdaccio_pid
-echo "verdaccio_pid = $VERDACCIO_PID"
 
 mkdir windows_test
 cp scripts/js/basic_usage.js windows_test/basic_usage.js
@@ -27,3 +18,6 @@ npm install web3@e2e --save --registry http://localhost:4873
 
 node ./basic_usage.js
 
+# This might be the only way to exit with success in a Windows job
+# Killing the server doesn't work...
+circleci-agent step halt
