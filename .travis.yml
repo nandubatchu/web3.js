@@ -58,4 +58,8 @@ install:
   - bash ./scripts/install.sh
 script:
   - bash ./scripts/ci.sh
+after_success:
+  - ps aux | grep -ie node | awk '{print $2}' | xargs kill -9
+  - ps aux | grep -ie bash | awk '{print $2}' | xargs kill -9
+
 
