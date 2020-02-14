@@ -10,12 +10,13 @@ set -o errexit
 trap cleanup EXIT
 
 cleanup() {
-  source verdaccio_pid
-  kill -9 VERDACCIO_PID
+  kill -9 $VERDACCIO_PID
 }
 
 # Virtual publish
 ./scripts/e2e.npm.publish.sh
+source verdaccio_pid
+echo "verdaccio_pid = $VERDACCIO_PID"
 
 mkdir windows_test
 cp scripts/js/basic_usage.js windows_test/basic_usage.js
