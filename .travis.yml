@@ -23,7 +23,7 @@ matrix:
     - node_js: 10
       env: TEST=e2e_ens
     - node_js: 12
-      env: TEST=e2e_windows
+      env: TEST=e2e_windows YARN_GPG=no
       os: windows
     - node_js: 10
       env: TEST=e2e_browsers
@@ -53,7 +53,6 @@ before_install:
     fi
   - export DISPLAY=:99.0
   - export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-  - export YARN_GPG=no
 install:
   - bash ./scripts/install.sh
 script:
