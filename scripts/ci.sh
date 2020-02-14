@@ -52,7 +52,9 @@ elif [ "$TEST" = "e2e_windows" ]; then
 
   ./scripts/e2e.npm.publish.sh
   ./scripts/e2e.windows.sh
-  ps -ef | grep 'node' | grep -v grep | awk '{print $2}' | xargs kill -9
+  lsof -i
+  lsof -t -i:4873
+  kill $(lsof -t -i:4873)
 
 elif [ "$TEST" = "e2e_ganache" ]; then
 
