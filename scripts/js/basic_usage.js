@@ -41,7 +41,7 @@ async function main(){
   let block;
 
   // Providers
-  log();
+  /*log();
   log('>>>>>>');
   log('HTTP:MAINNET getBlock');
   log('>>>>>>');
@@ -60,7 +60,7 @@ async function main(){
   web3 = new Web3('wss://mainnet.infura.io/ws/v3/1d13168ffb894ad2827f2152620bd27c');
   block = await getBlockWithRetry(web3);
   web3.currentProvider.disconnect();
-  log(util.inspect(block));
+  log(util.inspect(block));*/
 
 
   // Accounts
