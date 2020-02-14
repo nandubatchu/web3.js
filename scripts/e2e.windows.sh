@@ -18,6 +18,8 @@ npm install web3@e2e --save --registry http://localhost:4873
 
 node ./basic_usage.js
 
+echo "Completed basic_usage.js"
+
 # This might be the only way to exit with success in a Windows job
 # Killing the server doesn't work...
 circleci-agent step halt
