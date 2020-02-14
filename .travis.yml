@@ -58,4 +58,6 @@ install:
   - bash ./scripts/install.sh
 script:
   - bash ./scripts/ci.sh
+  - echo "in travis.yml script"
+  - ps -ef
 

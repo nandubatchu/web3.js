@@ -52,6 +52,8 @@ elif [ "$TEST" = "e2e_windows" ]; then
 
   ./scripts/e2e.npm.publish.sh
   ./scripts/e2e.windows.sh
+  echo "in ci.sh"
+  ps -ef
 
 elif [ "$TEST" = "e2e_ganache" ]; then
 
