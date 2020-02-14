@@ -11,7 +11,9 @@ jobs:
       - run: dotnet tool install --global PowerShell
       - run: node --version
       - run: nvm install 12.16.0
-      - run: TEST=e2e_windows bash ./scripts/ci.sh
+      - run: nvm use 12.16.0
+      - run: bash ./scripts/e2e.npm.publish.sh
+      - run: bash ./scripts/e2e.windows.sh
 workflows:
   version: 2
   build:
