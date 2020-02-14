@@ -52,9 +52,6 @@ elif [ "$TEST" = "e2e_windows" ]; then
 
   ./scripts/e2e.npm.publish.sh
   ./scripts/e2e.windows.sh
-  set +e
-  pkill -9 -P $$ &> /dev/null || true
-  exit 0
 
 elif [ "$TEST" = "e2e_ganache" ]; then
 

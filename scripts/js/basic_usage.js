@@ -59,10 +59,10 @@ async function main(){
   // WebSockets
   // Infura connection is super flaky and drops connections a lot.
   // We try 10 times...
-  web3 = new Web3('wss://mainnet.infura.io/ws/v3/1d13168ffb894ad2827f2152620bd27c');
+  /*web3 = new Web3('wss://mainnet.infura.io/ws/v3/1d13168ffb894ad2827f2152620bd27c');
   block = await getBlockWithRetry(web3);
   web3.currentProvider.disconnect();
-  log(util.inspect(block));
+  log(util.inspect(block));*/
 
 
   // Accounts
