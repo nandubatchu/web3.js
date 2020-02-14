@@ -58,5 +58,8 @@ install:
   - bash ./scripts/install.sh
 script:
   - bash ./scripts/ci.sh
-after_script:
+after_success:
+  - set +e
   - pkill -9 -P $$ &> /dev/null || true
+  - exit 0
+
