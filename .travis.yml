@@ -3,6 +3,9 @@ services:
 language: node_js
 git:
   depth: false
+
+env: YARN_GPG=no
+
 matrix:
   fast_finish: true
   include:
@@ -23,7 +26,7 @@ matrix:
     - node_js: 10
       env: TEST=e2e_ens
     - node_js: 12
-      env: TEST=e2e_windows YARN_GPG=no
+      env: TEST=e2e_windows
       os: windows
     - node_js: 10
       env: TEST=e2e_browsers
@@ -31,9 +34,9 @@ matrix:
         chrome: stable
         firefox: latest
   allow_failures:
-    - node_js: 12.16.0
+    - node_js: 12
       env: TEST=e2e_ganache
-    - node_js: 12.16.0
+    - node_js: 12
       env: TEST=e2e_mosaic
 
 addons:

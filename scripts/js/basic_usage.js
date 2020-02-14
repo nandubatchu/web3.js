@@ -10,6 +10,32 @@ async function delay(secs=0){
   return new Promise(resolve => setTimeout(() => resolve(), secs * 1000))
 }
 
+// A workaround for how flaky the infura connection can be...
+// Tries to fetch data 10x w/ 1 sec delays. Exits on first success.
+async function getBlockWithRetry(web3){
+  let i = 0;
+  let block;
+
+  while(true){
+    await delay(1);
+
+    try {
+
+      block = await web3.eth.getBlock('latest');
+      break;
+
+    } catch(err){
+
+      i++;
+      if (i === 10){
+        throw new Error('Failed to connect to Infura over websockets after 10 tries');
+      }
+
+    }
+  }
+  return block;
+}
+
 async function main(){
   let web3;
   let block;
@@ -22,7 +48,7 @@ async function main(){
 
   // Http
   web3 = new Web3('https://mainnet.infura.io/v3/1d13168ffb894ad2827f2152620bd27c');
-  block = await web3.eth.getBlock('latest');
+  block = await getBlockWithRetry(web3);
   log(util.inspect(block));
 
   log();
@@ -34,23 +60,10 @@ async function main(){
   // Infura connection is super flaky and drops connections a lot.
   // We try 10 times...
   web3 = new Web3('wss://mainnet.infura.io/ws/v3/1d13168ffb894ad2827f2152620bd27c');
-
-  let i = 0;
-  while(true){
-    await delay(1);
-    try {
-      block = await web3.eth.getBlock('latest');
-      log(util.inspect(block));
-      break;
-    } catch(err){
-      i++;
-      if (i === 10){
-        web3.currentProvider.disconnect();
-        throw new Error('Failed to connect to Infura over websockets after 10 tries');
-      }
-    }
-  }
+  block = await getBlockWithRetry(web3);
   web3.currentProvider.disconnect();
+  log(util.inspect(block));
+
 
   // Accounts
   web3 = new Web3();
