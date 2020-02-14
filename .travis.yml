@@ -53,6 +53,7 @@ before_install:
     fi
   - export DISPLAY=:99.0
   - export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+  - export YARN_GPG=no
 install:
   - bash ./scripts/install.sh
 script:
