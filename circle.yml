@@ -12,7 +12,7 @@ jobs:
       - run: node --version
       - run: nvm install 12.16.0
       - run: nvm use 12.16.0
-      - run: ./scripts/e2e.windows.sh
+      - run: bash ./scripts/e2e.windows.sh
 
 workflows:
   version: 2
