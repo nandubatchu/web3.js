@@ -52,9 +52,9 @@ elif [ "$TEST" = "e2e_windows" ]; then
 
   ./scripts/e2e.npm.publish.sh
   ./scripts/e2e.windows.sh
-  lsof -i
-  lsof -t -i:4873
-  kill $(lsof -t -i:4873)
+  netstat -ano | findstr :4873
+  pid=(netstat -ano | findstr :4873)
+  taskkill /PID $pid /F
 
 elif [ "$TEST" = "e2e_ganache" ]; then
 
