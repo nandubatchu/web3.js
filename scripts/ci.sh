@@ -50,11 +50,8 @@ elif [ "$TEST" = "e2e_ens" ]; then
 
 elif [ "$TEST" = "e2e_windows" ]; then
 
-  ./scripts/e2e.npm.publish.sh
-  ./scripts/e2e.windows.sh
-  source verdaccio_pid
-  echo "pid is: $VERDACCIO_PID"
-  kill -9 "$VERDACCIO_PID"
+  npm run test:e2e:publish
+  npm run test:e2e:windows
 
 elif [ "$TEST" = "e2e_ganache" ]; then
 

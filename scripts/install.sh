@@ -7,7 +7,6 @@
 skip=(
   "e2e_ganache"
   "e2e_mosaic"
-  "e2e_windows"
 )
 
 if [[ ! " ${skip[@]} " =~ " ${TEST} " ]]; then

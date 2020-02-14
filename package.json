@@ -49,7 +49,9 @@
         "test:e2e:mosaic": "./scripts/e2e.mosaic.sh",
         "test:e2e:ens": "./scripts/e2e.ens.sh",
         "test:e2e:ganache:core": "./scripts/e2e.ganache.core.sh",
+        "test:e2e:windows": "./scripts/e2e.windows.sh",
         "ci": "./scripts/ci.sh",
+        "ci:install": "./scripts/install.sh",
         "coveralls": "./scripts/coveralls.sh",
         "cov:clean": "rm -rf .nyc_output; rm -rf coverage",
         "cov:html": "nyc report --reporter=html"

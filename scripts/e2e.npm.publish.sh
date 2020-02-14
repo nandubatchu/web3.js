@@ -18,8 +18,6 @@ if [ -z "$CI" ]; then
 
 fi
 
-YARN_GPG=no
-
 # To model publication correctly, this script needs to run
 # without web3's dev deps being installed. It installs
 # what it needs here.
@@ -28,11 +26,7 @@ npm install -g npm-auth-to-token@1.0.0
 npm install -g lerna@3.18.3
 
 # Launch npm proxy registry
-verdaccio --config verdaccio.yml &
-echo "in npm.publish.sh: $!"
-echo "VERDACCIO_PID=$!" >> verdaccio_pid
-
-npx wait-port 4873
+verdaccio --config verdaccio.yml & npx wait-port 4873
 
 # `npm add user`
 curl -XPUT \
